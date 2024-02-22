@@ -1,0 +1,21 @@
+---
+# tasks file for ansible-role-addsshkey
+
+- name: create ssh folder
+  ansible.builtin.file:
+    path: /home/{{user}}/.ssh
+    state: directory
+    owner: "{{user}}"
+    group: "{{user}}"
+    mode: "0700"
+- name: create authorized_keys file
+  ansible.builtin.file:
+    path: /home/{{user}}/.ssh/authorized_keys
+    owner: "{{user}}"
+    state: touch
+    group: "{{user}}"
+    mode: "0600"
+
+- name: add ssh key
+  shell: echo {{ hostvars['DUMMY_HOST']['RSA_NEW'] }} > /home/{{user}}/.ssh/authorized_keys
+  no_log: True
