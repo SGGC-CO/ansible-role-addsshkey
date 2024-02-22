@@ -1,0 +1,9 @@
+---
+roles:
+  - name: ansible-role-lsk
+    src: https://github.com/SGGC-CO/ansible-role-lsk.git
+    version: main
+
+  - name: ansible-role-addsshkey
+    src: https://github.com/SGGC-CO/ansible-role-addsshkey.git
+    version: main

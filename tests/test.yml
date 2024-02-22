@@ -1,5 +1,10 @@
 ---
 - hosts: localhost
-  remote_user: root
+  gather_facts: no
+  roles:
+    - ansible-role-lsk
+
+- hosts: gol_server
+  become: yes
   roles:
     - ansible-role-addsshkey
